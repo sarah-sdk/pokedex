@@ -1,14 +1,27 @@
-interface NavBarProps{
-  etat: string;
-  action: () => void;
+interface Pokemon {
+  name: string;
+  imgSrc?: string;
 }
 
-function NavBar({etat, action}: NavBarProps) {
-  return(
+interface NavBarProps {
+  pokemonTable: Pokemon[];
+  onPokemonClick: (index: number) => void;
+}
+
+function NavBar({ pokemonTable, onPokemonClick }: NavBarProps) {
+  return (
     <>
-    <button type="button" onClick={action}>{etat}</button>
+      {pokemonTable.map((pokemon, index) => (
+        <button
+          key={pokemon.name}
+          type="button"
+          onClick={() => onPokemonClick(index)}
+        >
+          {pokemon.name}
+        </button>
+      ))}
     </>
-  )
+  );
 }
 
 export default NavBar;
