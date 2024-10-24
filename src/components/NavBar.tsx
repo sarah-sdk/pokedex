@@ -13,9 +13,9 @@ function NavBar({ pokemonTable, onPokemonClick }: NavBarProps) {
     <>
       {pokemonTable.map((pokemon, index) => (
         <button
-          key={pokemon.name}
-          type="button"
-          onClick={() => onPokemonClick(index)}
+        key={pokemon.name}
+        type="button"
+        onClick={() => onPokemonClick(index)}
         >
           {pokemon.name}
         </button>
